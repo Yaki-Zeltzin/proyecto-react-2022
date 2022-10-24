@@ -1,29 +1,18 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Criptos from "./cripto/Criptos";
 import "./Cuadricula.css"
+import usePetition from "./hocks/usePetition";
 
 function Cuadricula() {
 
   const API_URL = 'https://api.coincap.io/v2/';
 
-  const [criptos, setCriptos] = useState();
-
-  useEffect(() => {
-    axios.get(`${API_URL}assets`)
-      .then((data) => {
-        setCriptos(data.data.data);
-      })
-      .catch(() => {
-        console.error('La petición falló')
-      });
-  }, []);
+  const criptos = usePetition('assets');
 
 
   if (!criptos) return <span>Cargando...</span>
 
   return (
-    <div className="app-container">
+    <div className="grid-container">
       <h1>Lista de criptomonedas</h1>
       <div className="cripto-container">
         {
