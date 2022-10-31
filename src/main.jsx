@@ -8,6 +8,7 @@ import Home from './components/Home'
 import "./main.css"
 import {UserContextProvider} from './components/context/UserContext'
 import Perfil from './components/usuarios/Perfil'
+import Login from './components/usuarios/Login'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <UserContextProvider>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route index element={<Cuadricula />}/>
           <Route path=':id' element={<CriptoPage />} />
         </Route>
+        <Route path='/login' element={<Login/>}/>
       </Routes>
     </BrowserRouter>
   </UserContextProvider>
